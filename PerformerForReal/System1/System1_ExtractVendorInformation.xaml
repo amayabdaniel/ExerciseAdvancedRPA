@@ -1,0 +1,197 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="System1_ExtractClientInformation" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_TaxID" Type="OutArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>890,1426.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>System1_ExtractClientInformation_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="72">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="33">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Extracts the ClientID, ClientName and ClientCountry and writes to the output arguments&#xA;WorkItem Details Page open&#xA;None" DisplayName="System1_ExtractClientInformation" sap:VirtualizedContainerService.HintSize="587.333333333333,1362" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Default="https://acme-test.uipath.com/work-items" Name="System1_URL" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="545.333333333333,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;System1_ExtractClientInformation start&quot;]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="545.333333333333,1022.66666666667" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <TryCatch.Try>
+        <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: ACME System 1 - Work Items" sap:VirtualizedContainerService.HintSize="506.666666666667,784.666666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="ba7f38be-fcdd-4d6d-93a9-4bb250e23873" Version="V2" WindowResize="Maximize">
+          <uix:NApplicationCard.Body>
+            <ActivityAction x:TypeArguments="x:Object">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="472.666666666667,526.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:String" Name="ClientInformation" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <uix:NGetText DisplayName="Get Text 'Vendor Information'" sap:VirtualizedContainerService.HintSize="430.666666666667,158" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="ba7f38be-fcdd-4d6d-93a9-4bb250e23873" Version="V1">
+                  <uix:NGetText.Target>
+                    <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/work-items/86899879" DesignTimeRectangle="499, 443, 373, 80" ElementType="Text" FriendlyName="'TaxID: DE325476'" FullSelectorArgument="&lt;webctrl tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='P' type='' class='' aaname='                              DE325476                              Volga Rivers                              Hoch Strasse 12                              Koln, Germany                         ' /&gt;" Guid="401929d6-b8b7-4dff-9e5b-89b47e1f0468" ImageBase64="" InformativeScreenshot="b1ddfb905b469b3985f2825144975046.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='ACME System 1 - Work Items' /&gt;" SearchSteps="Selector, FuzzySelector" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                          <uix:Target DesignTimeRectangle="499, 414, 373, 20" ElementType="Text" FriendlyName="'Vendor Information'" FullSelectorArgument="&lt;webctrl tag='H4' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H4' type='' class='' aaname='Vendor Information' check:innerText='Vendor Information' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAXkAAAAYCAYAAAAf3I12AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAbrSURBVHhe7ZxvaBNnGMBfxjYYjMFkOrcvMnRshbmx3diMU4iby6zMOtaAtiI2U2YdtCC0yOw+bFIpUcvZDw62GlnJF4OwpZ/SqRWEE8IVlAhCCl0KhXwQAkLADwHh2fO89yfJXa69NDbo8fxGpHnuufd97o73lzfvXSaAYRiGCSwseYZhmADDkmcYhgkwLHmGYZgAIyVfwVfonA4jigJQnqVQQ3RMVHbGITcRMiNrSwlfykAa+8O61hD1HvZDx35PNSP+KT4BiI3N4nmJyDaKf/ebW55t8mWA5Gga/8rJ99a5Tg/QuaZ3DMMEAXsmH89WQAgB5ZlhM+Jm5EYZ3scceJAwI2tLOyVPx74ayatzxr7Xfz8AelaHStGQ5rPO4HQJVPpgY8kzTKCxJZ/HGelr2ychc4oGOU7zHFBEOZWBVB9tL8rYWvM8SJ5k+SPt+5Bmxc8PTskzDBNMbMkTvVcL0OchrPRDEuERKE0PmhEAHWPRoQQoShjCKAx1KAqVhYy5tSppHSWdmCtBuHtYLmnEOkNQmI7jVlooqlKbE+8LQ7E4CyJ60yX5zHwZ+1VX7FfD/WKTOZmndofxk0ozEhw4Je+nbiunA/cTuE2IDXXSXG2NJayxtu9Q56Dsm85HZSFtLg9l5PJQZKcC+iRejyfUmgGdUXWmAJEeqjkk9+3HdmvPtzKRs+um7XR+rXqcM3m/x+H3GjMM017qJJ9aItntg+K1mBmpErtWhH4S4SNjgCfu0/LOx3D+yCbQb6McbusQ/kmFDzCn4pDljm8FfC06QJtWZd7W2AUp1UqWJGBAS0EUu9z3HujZDIxMZaCHRNQzWCd59R71+yGcP7BO9puc0WHj3iHY2qBfsUnAxT0CNGwvN00fXO5vKISX5Jerm9Sl3y/Cd+PXYT/G7t68CIWsjtFySzWWcH9n37S/2HQIft4h4M0Tv0JqtBfzNYiN4/7YZu31iuEHNcXSE/14HjVI4b7roiMyVr4xInP0hTLsv/AvnMSYnk1CeUG366mVfDPH4ecaMwzTfuok77UkU8CXcjgF+jm64VqRW5S+FGRHN+AssipOEl9oDMVi7m8JIIaDHYrVbwc5nI2+unncljctFb0S+gP+OfE2tlftV50jyXTU5YnPMe8YtleTV6B4dMrV7y/U7+PGs/davCS/Ut0ELXscpTzz20+rNXr1Hb9D5wKlPN6F74zZsXVdMiepzRLk8d/I4STWF8W/qjNoumEuXj/rqnu5Nflmj8PPuWIYpv3gyKyHZtS7aMAupswIztofYKJ4156VpXHMC3EQ7lw+BnP6XXnD0Xp9f/GWMeBRerY4jhtCsHAKJbVI7e2Cyp36WZ8lMUsUiXnK63DlEcMzZfjSrNvZ/kp4SX6lugmS5Q/m8RKt1ujVt13jnFGjhTKur3icVpvaGOUZ8l9J8k0fh49zxTBM+8GRWo+c9YkzkL9CM0aDrsk8/LkNU5/QXNEQTsd6gXmb5fqr8xXCF9y/5DnQnXFq7xtTGrXIbxanZ23Je+URtaJuVjC1+xJ+6yackm+1Rq+4s0YLWl935lZwFl14WAYtmwN1Kg2Ro8ZyjbPu5SS/VsfBMEx7wZHqhqQ+GcJNKHX62i3eOle37uslHCd+BeAlFJpzKmMaSx5x1mjhlPyZG0W8Xp0yN/qVAsOHeyExFQdxQHXVzZJnmOCDI9UNLc9sEe8AzE/CqA6wlwb0UnWwG8sru6FwtdeMNMavAIz2wi0v1xykOos1y0Q+BeMUqN+6CafkW63RK+5H8plHlHMcbv22DT8hq0sn1nl01t3Kcs1qj4NhmPaCI9UN6YFurP73lwBxNud6dt7aHv8Ud39MT5QY0My7a1yHeGcI0zXfApAS6k66bvIZT3d8YUt+uZuBL0enINlNeQXPfr14mpJvtUavuB/J2zmOdfvkAsX3u+pe7Y3XVo6DYZj2giO4MSSBPTtQ8i/tbjibMwS8FQ5uFKDPJORjc72nL0nJFM1n6ZsRgNXehb4t8nG9M9c0fL8dxIvCljzR6LG+9XuH4CPs1/lYn1/BPE3JE63U6BX3I/lZOZMfgH2YR9dEy+owOGE8ZvnCJ2/UtUk32D/DuHZ1pKlHKFs9DoZh2oun5Omrv6IMQ3wnDtJKdbZeS2ahYv9Qhm62DvdEoJSt/i8PmhVAer4MkaNxbC8kf0yjTePfA/RIIOVVcf5AJ0E/0FlyP4boVzAkULphvFrJD9K+NZInVlujV9xZo4VzTT6N18Q6h/RjqcRQL5QXNei6kq+7lvnHAJGTSZlHj2CW8L9G/T7t42AYpr14Sp5hGIZ5/mHJMwzDBBiWPMMwTIBhyTMMwwQYljzDMEyAYckzDMMEGJY8wzBMYAH4H/bvg7tqkD4fAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NGetText.Target>
+                  <uix:NGetText.Text>
+                    <OutArgument x:TypeArguments="x:String">[ClientInformation]</OutArgument>
+                  </uix:NGetText.Text>
+                </uix:NGetText>
+                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="430.666666666667,99.3333333333333" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                  <ui:MultipleAssign.AssignOperations>
+                    <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:String">[out_TaxID]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(ClientInformation, "(?&lt;=TaxID: )(.*)").ToString.Trim]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                    </scg:List>
+                  </ui:MultipleAssign.AssignOperations>
+                </ui:MultipleAssign>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="430.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[ClientInformation]" />
+              </Sequence>
+            </ActivityAction>
+          </uix:NApplicationCard.Body>
+          <uix:NApplicationCard.TargetApp>
+            <uix:TargetApp Area="-1928, -8, 1936, 1048" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAReSURBVFhHvZdtbFNlFMcf3SxUfI0miLAEWdShCV+EGD9oUJBJAobwQb8IGklkKEQkcy8MZK90tGsnZbxsvkDmxsYkS8QFPhDYLIy+sbv2rhW3dYPFbGyVbYwJJMu2wzm3Prd317ZCc+uHf9vnPC/n13PPc57nMrZX6EPdQo39zyKf1wgAZJWQ2sJtzYVrkw+lDT9G5UbBZWB5TmC7XIlRHgnXJ4hSyecwAYwxAzawM/1EoKFSvLEh97eBjOw4xedmNg9k7LSFRO2sloEMg2Po0x3n+4tYMUaiUIr0SAiAiL5xwfrGqyvSt69hiZZuXzv6cwP+cQVAoRveqQtsizRBS33vHV6cTAD5agA0rG7o+SLSpHg0ODG9aGlFR+vy+kCl0l4p3HgpKkC6RgAA8GxSqQfY5zZgm22wq3XwFO+zOIeiA6z5OQyQctBXpTd6BdwZwrsNPVZuV2vJD3/YWOFl9xNmr5hULGwiW8v1OxvZpmZg5SKw7a2Y8e3Ax5c5g9EB1p4MA+hNnjssH7dlth2WHusMcrta8yt8wHLswIpwbEHbUW5P/e4KsK0XJDX2jBVw+30DPGkR7awIt8pOJ7xR03WO29VadNg/Ke1tLDJPfyvuUfbtbu5fn+MIvqK0HYmVAzMAzKJTAdCsXEQpBJimMQQwx+TNjzRm6PbUQ/x3lWc4cQC60nYZYOEhP+jxsTxqbAfMp3JurxZHNAY44p/iAHpFBB63eIF9jbmBJVhn9Bi5vdanPYAcASUA/mtgu7H24+H2nLVDttdoDZAaBWAB7Q4CwLo/d38cAE9Z7hsg4iOIC+B9BcDsfR6XdGrhFltW3XWe29VKq/JPSAAGHFsiyPs9LgBlJcQk8mGFA5ZlhxX1gTPcrlbKobCjOWavidvjAnjreEAG+Ph03yn21SVgmZfg9druAW5XK9mI2Y5HOct2gFUIbuH25w/EAfBmTRjgqH9ks1RK6VDBx9B5a+IF3sc1DbCE5TqoBEvb7drfE/N431xrx4MDrKwPA5D0Zeg8FxehwXvckHfh+icmVzCt7vfRxTkt/VmMzopinLv1IrxW03VTOTdaBKpjAbynOo6b/hzfwj46hxmO/ZQPGGZdGYac2plYZOgOSU4+s8HoFKxSzk2hHKBHg3VgntUnnxExI6AGIH3Y1NfGdmAufInHKk2ik48umBgRsusK3LDhbL9c6biYAZ1suyglMUbpILfX+R8QgNTUO77sg8beX58xeuAxrO3JeL7Pt4jjG3+5+lPf3UldpDlvH+++mXqgY/LlSj8srw1kcfsxMcZhFA1ASx0WYgDglSzhl9IfPcNpUQHwUro20iStNQsf47+v5ZjN6072lpy4Mrqw3BV81eSYKSPKjCq1D0ptc4Qx/6UK4a8XjY6hdcmUoJi86FsCCL2aIUQSdszGRHsYvylMWusRFNuLotoReh2UXs1CDXpXo9cl2l5ElwjxtblPEn50o0ZQQUmGf74ToZlro0+h8x4tMHhuvyezngAAAABJRU5ErkJggg==" InformativeScreenshot="baa1a0d495afcf9e9af643c9bcc44bea.png" Selector="&lt;html app='msedge.exe' title='ACME System 1 - Work Items' /&gt;" Url="[System1_URL]" />
+          </uix:NApplicationCard.TargetApp>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </uix:NApplicationCard>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="511.333333333333,22" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Throw Exception="[new SystemException(&quot;System1_ExtractClientInformation &quot; + exception.Source + exception.Message)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="545.333333333333,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;System1_ExtractClientInformation finished&quot;]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+  </Sequence>
+</Activity>
